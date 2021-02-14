@@ -36,22 +36,39 @@ convertNumberToObject(numb);
 // Какими объектами можно заменить их элементы?
 // b.Реализуйте такие объекты.
 // c.Перенести функционал подсчета корзины на объектно-ориентированную базу.
-class Basket {
-  constructor(name, quantity, price) {
-    this.name = name;
-    this.quantity = quantity;
-    this.price = price;
-  }
-  countBasketPrice() {
-    let sum = this.quantity * this.price;
-    return sum;
-  }
-}
+const productOne = {
+  name: 'Xiaomi MI 9 T',
+  quantity: 1,
+  price: 17000,
+};
 
-const basket1 = new Basket("Xiaomi MI 9", 2, 15000);
-console.log(basket1);
-console.log(basket1.countBasketPrice());
+const productTwo = {
+  name: 'Xiaomi MI 9',
+  quantity: 2,
+  price: 15000,
+};
 
+const basket = {
+  items: [],
+
+  addItem(item) {
+    this.items.push(item);
+  },
+
+  getTotalSum() {
+    let totalSum = 0;
+
+    this.items.forEach(item => {
+      totalSum += (item.price * item.quantity);
+    });
+
+    return totalSum;
+  }
+};
+
+basket.addItem(productOne);
+basket.addItem(productTwo);
+console.log('Стоимость товаров в корзине ', basket.getTotalSum());
 
 // 3. * Подумать над глобальными сущностями.
 // К примеру, сущность «Продукт» в интернет-магазине актуальна не только для корзины,
