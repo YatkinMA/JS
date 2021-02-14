@@ -11,7 +11,8 @@ let numb = 569;
 
 function convertNumberToObject() {
   if (numb > 999) {
-    return alert(`Число ${numb} больше чем надо`);
+    console.log(`Число ${numb} больше чем надо`);
+    return {};
   } else if (numb <= 0) {
     return alert('Ноль или меньше, тоже не пойдёт');
   } else {
